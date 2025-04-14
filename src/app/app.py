@@ -7,6 +7,13 @@ st.set_page_config(
     layout="wide"
 )
 
+# Other imports
+import os
+import sys
+
+# Add the src directory to the Python path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+
 def main():
     st.title("Streamlit App")
     st.write("Welcome to my Streamlit application!")

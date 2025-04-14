@@ -1,5 +1,15 @@
+#!/usr/bin/env python
+# This file is the entry point for Streamlit Cloud
+import os
+import sys
+
+# Add the project root directory to the Python path
+sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
+
+# Import the main app module
 import streamlit as st
-# Set page configuration - MUST be the first Streamlit command
+
+# Set page configuration - MUST BE THE FIRST STREAMLIT COMMAND
 st.set_page_config(
     page_title="Agricultural Yield Prediction",
     page_icon="🌾",
@@ -7,16 +17,10 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Standard library imports
 import pandas as pd
 import numpy as np
-import os
-import sys
 import random
 from typing import Dict, Any
-
-# Add the src directory to the Python path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 # Import components
 from src.app.components.yield_form import YieldPredictionForm
@@ -115,6 +119,7 @@ def mock_model_prediction(input_data: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
+# Main app function
 def main():
     """Main function to run the Streamlit application."""
     # Display header
@@ -212,5 +217,6 @@ def main():
         )
 
 
+# Run the app
 if __name__ == "__main__":
     main() 

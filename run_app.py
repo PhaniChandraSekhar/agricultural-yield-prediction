@@ -8,7 +8,16 @@ sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 
 def main():
     """Run the Streamlit app."""
-    sys.argv = ["streamlit", "run", "src/app/main.py", "--server.port=8501", "--server.address=0.0.0.0"]
+    # Using a different port to avoid conflicts
+    port = os.environ.get("PORT", "8502")  # Use env variable or default to 8502
+    
+    # Set command line arguments for Streamlit
+    sys.argv = ["streamlit", "run", "src/app/main.py", 
+                f"--server.port={port}", 
+                "--server.address=0.0.0.0",
+                "--server.headless=true"]
+    
+    # Exit with Streamlit CLI's exit code
     sys.exit(stcli.main())
 
 if __name__ == "__main__":

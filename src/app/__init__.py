@@ -1,7 +1,6 @@
 # Streamlit App Package 
 
-# Import main app components
-from src.app.main import main
+# Import pages
 from src.app.pages.home import show_home
 from src.app.pages.prediction import show_prediction
 
@@ -20,7 +19,6 @@ __version__ = "0.1.0"
 
 # Export public interface
 __all__ = [
-    'main',
     'show_home',
     'show_prediction',
     'PredictionForm',
